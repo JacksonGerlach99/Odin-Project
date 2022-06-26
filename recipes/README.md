@@ -1,2 +1,2 @@
 # odin-recipes
-Practice using git through terminal quick html refresher
+Odin HTML Project did quick for html refresher and familiarize better with git
