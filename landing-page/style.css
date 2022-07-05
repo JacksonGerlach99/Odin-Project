@@ -11,8 +11,8 @@
     display: flex;
     background-color: #1F2937;
     height: 72px;
-    justify-content: space-between;
-    padding: 0px 350px;
+    justify-content: space-evenly;
+    gap: 75px;
 }
 .left-side, .right-side{
     display: flex;
@@ -42,7 +42,7 @@ a{
     align-items: center;
     justify-content: center;
     height: 400px;
-    gap: 200px;
+    gap: 100px;
 }
 .intro-text{
     display: flex;
@@ -110,11 +110,73 @@ a{
     justify-content: center;
     width: 150px;
     flex-wrap: wrap;
-    margin: 75px;
+    margin: 50px;
+}
+.quote{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.content{
+    margin-top: 150px;
+    font-size: 36px;
+    font-style: italic;
+    display: flex;
+    align-content: flex-end;
+    width: 800px;
+    margin-bottom: -50px;
+}
+.author{
+    display: flex;
+    justify-content: flex-end;
+    font: 18px;
+    font-weight: bolder;
+    padding-right: 30px;
 }
 
+.sign-up{
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 250px auto;
+    background-color:#3882f6;
+    border-radius: 15px;
+    width: 900px;
+    padding: 0px 100px;
+}
+.sign-up-left h1{
+    font-size: 18px;
+    padding-top: 30px;
+    font-weight: bold;
+}
+.sign-up-left p{
+    margin-top: -10px;
+    padding-bottom: 20px;
+}
 
-
-
-
+.sign-up button{
+    display: block;
+    text-align: center;
+    background-color: #3882f6;
+    font-size: 20px;
+    border-radius: 10px;
+    color: white;
+    font-weight: bolder;
+    width: 125px;
+    height: 40px;
+    border: 2px solid white;
+}
+.sign-up button:hover{
+    cursor: pointer;
+}
+.footer{
+    display: flex;
+    background-color: #1F2937;
+    height: 72px;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 12px;
+}
 
