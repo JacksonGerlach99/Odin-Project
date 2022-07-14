@@ -56,52 +56,89 @@ function playRound (playerSelection, computerSelection){
             temp = "You Win! Scissors beats Paper";
         }
     }
-    else{
-        console.log("please input Rock, Paper, or Scissors");
-        playRound(prompt("Rock, Paper, Scissors!"), computerPlay())
-        console.log("");
-    }
     return temp;
 
 }
 
-function game(){
-    let player = 0;
-    let npc = 0;
-    let game = false;
+// function game(){
+//     let player = 0;
+//     let npc = 0;
+//     let game = false;
 
-    console.log("First to 3 wins");
-    console.log("_______________")
-    while(game == false){
-        let result = playRound(prompt("Rock, Paper, Scissors!"), computerPlay())
+//     console.log("First to 3 wins");
+//     console.log("_______________")
+//     while(game == false){
+//         let result = playRound(prompt("Rock, Paper, Scissors!"), computerPlay())
 
-        if (result[4] === "W"){
-            player+=1;
-        }
-        else if(result[4] === "L"){
-            npc+=1;
-        }
-        else{
-            console.log("Draw!");
-        }
-        console.log(`Your Score ${player}`)
-        console.log(`Computer Score ${npc}`)
+//         if (result[4] === "W"){
+//             player+=1;
+//         }
+//         else if(result[4] === "L"){
+//             npc+=1;
+//         }
+//         else{
+//             console.log("Draw!");
+//         }
+//         console.log(`Your Score ${player}`)
+//         console.log(`Computer Score ${npc}`)
 
-        if (player == 3 || npc == 3){
-            game = true;
-        }
-        console.log("");
+//         if (player == 3 || npc == 3){
+//             game = true;
+//         }
+//         console.log("");
+//     }
+//     if(player == 3){
+//         console.log("You Win!")
+//     }
+//     else if(npc == 3){
+//         console.log("You Lose!")
+//     }
+
+// }
+
+
+const rock = document.getElementById("rock");
+const info = document.querySelector(".info");
+
+rock.addEventListener('click', () => {
+    rock.classList.add("playing");
+    let result = playRound("rock", computerPlay());
+    info.textContent = result;
+});
+
+
+
+const paper = document.getElementById("paper");
+
+paper.addEventListener('click', () => {
+    paper.classList.add("playing");
+    let result = playRound("paper", computerPlay());
+    info.textContent = result;
+});
+
+
+
+const scissor = document.getElementById("scissor");
+
+scissor.addEventListener('click', () => {
+    scissor.classList.add("playing");
+    let result = playRound("scissors", computerPlay());
+    info.textContent = result;
+});
+
+function removeTransition(e){
+    if(e.propertyName !== "transform"){
+        return;
     }
-    if(player == 3){
-        console.log("You Win!")
+    else{
+        e.target.classList.remove("playing");
     }
-    else if(npc == 3){
-        console.log("You Lose!")
-    }
-
 }
-if (prompt("type in start to start RPS best of 5") == "start"){
-    game();
-}
+
+
+
+const boxes = document.querySelectorAll(".box");
+
+ boxes.forEach(box => box.addEventListener('transitionend', removeTransition));
 
 
