@@ -1,4 +1,5 @@
 
+
 function computerPlay(){
     let npc = Math.floor(Math.random() * 3);
     
