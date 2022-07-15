@@ -60,50 +60,42 @@ function playRound (playerSelection, computerSelection){
 
 }
 
-// function game(){
-//     let player = 0;
-//     let npc = 0;
-//     let game = false;
-
-//     console.log("First to 3 wins");
-//     console.log("_______________")
-//     while(game == false){
-//         let result = playRound(prompt("Rock, Paper, Scissors!"), computerPlay())
-
-//         if (result[4] === "W"){
-//             player+=1;
-//         }
-//         else if(result[4] === "L"){
-//             npc+=1;
-//         }
-//         else{
-//             console.log("Draw!");
-//         }
-//         console.log(`Your Score ${player}`)
-//         console.log(`Computer Score ${npc}`)
-
-//         if (player == 3 || npc == 3){
-//             game = true;
-//         }
-//         console.log("");
-//     }
-//     if(player == 3){
-//         console.log("You Win!")
-//     }
-//     else if(npc == 3){
-//         console.log("You Lose!")
-//     }
-
-// }
-
 
 const rock = document.getElementById("rock");
 const info = document.querySelector(".info");
+const player = document.querySelector(".left");
+const npc = document.querySelector(".right");
+const Again = document.getElementById("playAgain")
+player.textContent = 0;
+npc.textContent = 0;
+
+Again.addEventListener('click', () => {
+    player.textContent = 0;
+    npc.textContent = 0;
+    info.textContent = "First to 5 wins!";
+    document.getElementById("scissor").disabled = false;
+    document.getElementById("rock").disabled = false;
+    document.getElementById("paper").disabled = false;
+    Again.style.display = "none";
+
+
+});
+
+
+
+
 
 rock.addEventListener('click', () => {
     rock.classList.add("playing");
     let result = playRound("rock", computerPlay());
     info.textContent = result;
+    if (result[4] === "W"){
+        player.textContent++;
+    }
+    else if(result[4] === "L"){
+        npc.textContent++;
+    }
+
 });
 
 
@@ -114,6 +106,12 @@ paper.addEventListener('click', () => {
     paper.classList.add("playing");
     let result = playRound("paper", computerPlay());
     info.textContent = result;
+    if (result[4] === "W"){
+        player.textContent++;
+    }
+    else if(result[4] === "L"){
+        npc.textContent++;
+    }
 });
 
 
@@ -124,6 +122,12 @@ scissor.addEventListener('click', () => {
     scissor.classList.add("playing");
     let result = playRound("scissors", computerPlay());
     info.textContent = result;
+    if (result[4] === "W"){
+        player.textContent++;
+    }
+    else if(result[4] === "L"){
+        npc.textContent++;
+    }
 });
 
 function removeTransition(e){
@@ -134,6 +138,26 @@ function removeTransition(e){
         e.target.classList.remove("playing");
     }
 }
+
+window.addEventListener('click', () =>{
+    
+    if (player.textContent == 5 || npc.textContent ==5){
+        document.getElementById("scissor").disabled = true;
+        document.getElementById("rock").disabled = true;
+        document.getElementById("paper").disabled = true;
+    }
+    if(player.textContent == 5){
+        info.textContent = "Congrats you Win!"
+        Again.style.display = "flex";
+    }
+    else if (npc.textContent == 5){
+        info.textContent = "Sorry, you lose."
+        Again.style.display = "flex";
+    }
+
+});
+
+
 
 
 
