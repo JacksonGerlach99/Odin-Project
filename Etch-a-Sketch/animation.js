@@ -1,4 +1,23 @@
+const default_color = "#333333"
+let current_color = default_color;
+
 const container = document.querySelector("#container");
+const colorButton = document.getElementById("colorPicker");
+
+
+function setColor(newColor){
+    current_color = newColor;
+}
+
+colorButton.addEventListener('click', () => {
+    const colorValue = document.getElementById("colorPicker").value;
+    console.log(colorValue);
+    setColor(colorValue);
+    console.log(colorValue);
+
+})
+
+
 
 function makeRows(size){
     container.style.gridTemplateColumns = `repeat(${size}, 1fr)`;
@@ -15,8 +34,8 @@ function makeRows(size){
 }
 
 function changeColor(e){
-    e.target.style.backgroundColor = 'red';
-    console.log(e);
+    e.target.style.backgroundColor = current_color;
+    
 
 }
 
