@@ -1,22 +1,21 @@
 const default_color = "#333333"
 let current_color = default_color;
+let toggle = false;
+
 
 const container = document.querySelector("#container");
-const colorButton = document.getElementById("colorPicker");
+const colorPicker = document.getElementById('colorPicker');
+
+document.body.onmousedown = () => (toggle = true);
+document.body.onmouseup = () => (toggle = false);
 
 
-function setColor(newColor){
+function setCurrentColor(newColor) {
     current_color = newColor;
 }
 
-colorButton.addEventListener('click', () => {
-    const colorValue = document.getElementById("colorPicker").value;
-    console.log(colorValue);
-    setColor(colorValue);
-    console.log(colorValue);
 
-})
-
+colorPicker.oninput = (e) => setCurrentColor(e.target.value);
 
 
 function makeRows(size){
@@ -34,6 +33,9 @@ function makeRows(size){
 }
 
 function changeColor(e){
+    if (e.type === 'mouseover' && toggle == false){
+        return;
+    } 
     e.target.style.backgroundColor = current_color;
     
 
