@@ -9,14 +9,23 @@
 
 </head>
     <body>
-        <div class="buttons">
-        <input id="colorPicker" type="color" value="#333333" />
-        <button id = "color-button">Color</button>
-        <button id = "rainbow-button">Rainbow</button>
-        <button id = "eraser-button">Eraser</button>
-        <button id = "clear-button">Clear</button>
-        </div>
-        <div id="container">
+        <h2 class="header"> Etch-a-Sketch</h2>
+
+        <div class ="center">
+            <div class="buttons">
+            <input id="colorPicker" type="color" value="#333333" />
+            <button id = "color-button">Color</button>
+            <button id = "grid-button">Grid</button>
+            <button id = "rainbow-button">Rainbow</button>
+            <button id = "eraser-button">Eraser</button>
+            <button id = "clear-button">Clear</button>
+            <div id="sliderNum">
+                16 x 16
+            </div>
+            <input id="slider" type="range" value="16" min="1" max="64" />
+            </div>
+            <div id="container">
+            </div>
         </div>
         
         <script src="animation.js"></script>
