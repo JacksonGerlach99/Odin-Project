@@ -1,0 +1,32 @@
+ body{
+    height: 100vh;
+ }
+
+.container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.box{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 150px;
+    width: 450px;
+    height: 600px;
+    border: 2px solid black;
+    border-radius: 14px;
+}
+
+#screen{
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    height: 150px;
+    border: 2px solid black;
+    width: 390px;
+    margin-top: 20px;
+    font-size: 64px;
+    border-radius: 14px;
+    padding: 0px 10px;
+}
