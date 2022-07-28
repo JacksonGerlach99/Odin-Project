@@ -12,10 +12,13 @@
     align-items: center;
     flex-direction: column;
     margin-top: 150px;
-    width: 450px;
+    width: 400px;
     height: 600px;
     border: 2px solid black;
     border-radius: 14px;
+    margin-left: 0;
+    margin-bottom: 0;
+    margin-right: 0;
 }
 
 #screen{
@@ -24,9 +27,17 @@
     justify-content: flex-end;
     height: 150px;
     border: 2px solid black;
-    width: 390px;
-    margin-top: 20px;
+    width: 325px;
+    margin-top: 25px;
     font-size: 64px;
     border-radius: 14px;
     padding: 0px 10px;
+    margin-bottom: 20px;
+}
+.button-grid{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+.grid-2fr{
+    grid-column: span 2;
 }
