@@ -8,36 +8,70 @@
     justify-content: center;
 }
 .box{
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    margin-top: 150px;
+    margin-top: 100px;
     width: 400px;
     height: 600px;
     border: 2px solid black;
     border-radius: 14px;
-    margin-left: 0;
-    margin-bottom: 0;
-    margin-right: 0;
+    background-color: #999999;
 }
 
 #screen{
     display: flex;
-    align-items: flex-end;
-    justify-content: flex-end;
-    height: 150px;
+    flex-direction: column;
     border: 2px solid black;
+    text-align: right;
     width: 325px;
     margin-top: 25px;
-    font-size: 64px;
     border-radius: 14px;
-    padding: 0px 10px;
+    padding-right: 15px;
+    margin-left: 25px;
     margin-bottom: 20px;
+    padding-top: 20px;
+    background-color: white;
+    word-wrap: break-word;
+    word-break: break-word;
+    min-height: 125px;
 }
+.display{
+    font-size: 32px;
+    min-height: 32px;
+}
+.current-input{
+    font-size: 64px;
+    min-height: 64px;
+}
+
 .button-grid{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-gap: 10px;
+    margin: 0px 25px;
 }
+ button {
+    height: 60px;
+    border-radius: 5px;
+    border: 2px solid black;
+ }
+ button:hover{
+    cursor: pointer;
+    background-color: #bfbfbf;
+ }
+
 .grid-2fr{
     grid-column: span 2;
+}
+#clear{
+    background-color: #ff3333;
+}
+#delete{
+    background-color: #0099ff;
+}
+#delete:hover{
+    cursor: pointer;
+    background-color: #66c2ff;
+}
+#clear:hover{
+    cursor: pointer;
+    background-color: #ff6666;
 }
