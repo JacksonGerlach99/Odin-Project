@@ -26,7 +26,7 @@
     border-radius: 14px;
     padding-right: 15px;
     margin-left: 25px;
-    margin-bottom: 20px;
+    margin-bottom: 35px;
     padding-top: 20px;
     background-color: white;
     word-wrap: break-word;
@@ -52,6 +52,7 @@
     height: 60px;
     border-radius: 5px;
     border: 2px solid black;
+    font-size: 24px;
  }
  button:hover{
     cursor: pointer;
@@ -74,4 +75,7 @@
 #clear:hover{
     cursor: pointer;
     background-color: #ff6666;
+}
+#clear, #delete{
+    font-size: 28px;
 }
