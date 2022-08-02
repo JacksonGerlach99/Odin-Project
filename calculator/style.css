@@ -33,11 +33,11 @@
     word-break: break-word;
     min-height: 125px;
 }
-.display{
+#display{
     font-size: 32px;
     min-height: 32px;
 }
-.current-input{
+#current-input{
     font-size: 64px;
     min-height: 64px;
 }
