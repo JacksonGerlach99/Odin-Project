@@ -13,69 +13,47 @@ const Operation = document.querySelectorAll('.operator');
 const equalbutton = document.getElementById("equal");
 
 numbers.forEach((element) => {
-    element.addEventListener('click', () =>{
+    element.addEventListener('click',() =>{
         if(inputScreen.innerHTML != 'ERROR'){
-            if(Op === ""){
-                if (element.innerHTML != "."){
-                    firstNum = firstNum.concat(element.innerHTML);
-                    inputScreen.innerText = firstNum;
-                }
-                else{
-                    if (dotCheck == false){
-                        firstNum = firstNum.concat(element.innerHTML);
-                        inputScreen.innerText = firstNum;
-                        dotCheck = true;
-                    }
-                }
-            }
-            else{
-                if (element.innerHTML != "."){
-                    lasNum = lasNum.concat(element.innerHTML);
-                    inputScreen.innerText = lasNum
-                }
-                else{
-                    if (dotCheck == false){
-                        lasNum = lasNum.concat(element.innerHTML);
-                        inputScreen.innerText = lasNum
-                        dotCheck = true;
-                    }
-                }
-                
-            }
+            appendNumbers(element);
         }
         else{
             clear();
-            if(Op === ""){
-                if (element.innerHTML != "."){
-                    firstNum = firstNum.concat(element.innerHTML);
-                    inputScreen.innerText = firstNum;
-                }
-                else{
-                    if (dotCheck == false){
-                        firstNum = firstNum.concat(element.innerHTML);
-                        inputScreen.innerText = firstNum;
-                        dotCheck = true;
-                    }
-                }
-            }
-            else{
-                if (element.innerHTML != "."){
-                    lasNum = lasNum.concat(element.innerHTML);
-                    inputScreen.innerText = lasNum
-                }
-                else{
-                    if (dotCheck == false){
-                        lasNum = lasNum.concat(element.innerHTML);
-                        inputScreen.innerText = lasNum
-                        dotCheck = true;
-                    }
-                }
-                
-            }
+            appendNumbers(element);
         }
     });
 
 });
+
+function appendNumbers(element){
+    if(Op === ""){
+        if (element.innerHTML != "."){
+            firstNum = firstNum.concat(element.innerHTML);
+            inputScreen.innerText = firstNum;
+        }
+        else{
+            if (dotCheck == false){
+                firstNum = firstNum.concat(element.innerHTML);
+                inputScreen.innerText = firstNum;
+                dotCheck = true;
+            }
+        }
+    }
+    else{
+        if (element.innerHTML != "."){
+            lasNum = lasNum.concat(element.innerHTML);
+            inputScreen.innerText = lasNum
+        }
+        else{
+            if (dotCheck == false){
+                lasNum = lasNum.concat(element.innerHTML);
+                inputScreen.innerText = lasNum
+                dotCheck = true;
+            }
+        }
+        
+    }
+}
 
 Operation.forEach((element) => {
     element.addEventListener('click', () => {
@@ -92,7 +70,6 @@ Operation.forEach((element) => {
         else{
             let tempOp = element.innerHTML;
             operation();
-            console.log(tempOp);
             Op = tempOp;
             
         }
@@ -114,8 +91,14 @@ clearButton.addEventListener("click", () =>{
 });
 
 backButton.addEventListener("click", () =>{
-    firstNum = inputScreen.textContent.slice(0,[inputScreen.textContent.length-1]);
-    inputScreen.textContent = firstNum;
+    if(Op === ""){
+        firstNum = inputScreen.textContent.slice(0,[inputScreen.textContent.length-1]);
+        inputScreen.textContent = firstNum;
+    }
+    else{
+    lasNum = inputScreen.textContent.slice(0,[inputScreen.textContent.length-1]);
+    inputScreen.textContent = lasNum;
+    }
 });
 
 

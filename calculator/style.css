@@ -8,9 +8,9 @@
     justify-content: center;
 }
 .box{
-    margin-top: 100px;
+    margin-top: 125px;
     width: 400px;
-    height: 600px;
+    min-height: 600px;
     border: 2px solid black;
     border-radius: 14px;
     background-color: #999999;
@@ -38,7 +38,7 @@
     min-height: 32px;
 }
 #current-input{
-    font-size: 64px;
+    font-size: 48px;
     min-height: 64px;
 }
 
@@ -47,6 +47,8 @@
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-gap: 10px;
     margin: 0px 25px;
+    padding-bottom: 25px;
+    
 }
  button {
     height: 60px;
