@@ -3,6 +3,7 @@ let lasNum = "";
 let Op = "";
 let doubleOp = false;
 let dotCheck = false;
+let tempOp ='';
 
 const backButton = document.getElementById('delete');
 const clearButton = document.getElementById('clear');
@@ -11,6 +12,7 @@ const currentOp = document.getElementById("display");
 const numbers = document.querySelectorAll('.num');
 const Operation = document.querySelectorAll('.operator');
 const equalbutton = document.getElementById("equal");
+window.addEventListener('keydown', keyboardFunc);
 
 numbers.forEach((element) => {
     element.addEventListener('click',() =>{
@@ -56,7 +58,7 @@ function appendNumbers(element){
 }
 
 Operation.forEach((element) => {
-    element.addEventListener('click', () => {
+    element.addEventListener('click', () => {   
         dotCheck = false;
         if(inputScreen.innerHTML == "ERROR"){
             clear();
@@ -68,7 +70,7 @@ Operation.forEach((element) => {
             doubleOp = true;
         }
         else{
-            let tempOp = element.innerHTML;
+            tempOp = element.innerHTML;
             operation();
             Op = tempOp;
             
@@ -78,19 +80,25 @@ Operation.forEach((element) => {
     
 });
 
-equalbutton.addEventListener("click", () =>{
+
+equalbutton.addEventListener("click", equalEnd);
+
+function equalEnd(){
     if(Op != "" || lasNum != ""){
         operation();
         doubleOp = false;
     }
-    
-});
+}
 
 clearButton.addEventListener("click", () =>{
     clear();
 });
 
 backButton.addEventListener("click", () =>{
+    backSpace();
+});
+
+function backSpace(){
     if(Op === ""){
         firstNum = inputScreen.textContent.slice(0,[inputScreen.textContent.length-1]);
         inputScreen.textContent = firstNum;
@@ -99,7 +107,9 @@ backButton.addEventListener("click", () =>{
     lasNum = inputScreen.textContent.slice(0,[inputScreen.textContent.length-1]);
     inputScreen.textContent = lasNum;
     }
-});
+}
+
+
 
 
 function clear(){
@@ -107,6 +117,7 @@ function clear(){
     lasNum = "";
     Op = "";
     doubleOp = false;
+    dotCheck = false;
     inputScreen.innerText = "";
     display.innerText = "";
 }
@@ -137,9 +148,85 @@ function operation(){
     else if (Op === "x"){
         firstNum = firstNum * lasNum;
     }
+    firstNum = Math.round(parseFloat(firstNum) * 100) / 100
+    firstNum = firstNum.toString();
     inputScreen.innerText = firstNum; 
     Op = "";
     lasNum ="";
     temp="";
 }
 
+function keyboardFunc(e){
+    if (!isNaN(e.key) || e.key == "."){
+        if(Op === ""){
+            if (e.key != "."){
+                firstNum = firstNum.concat(e.key);
+                inputScreen.innerText = firstNum;
+            }
+            else{
+                if (dotCheck == false){
+                    firstNum = firstNum.concat(e.key);
+                    inputScreen.innerText = firstNum;
+                    dotCheck = true;
+                }
+            }
+        }
+        else{
+            if (e.key != "."){
+                lasNum = lasNum.concat(e.key);
+                inputScreen.innerText = lasNum
+            }
+            else{
+                if (dotCheck == false){
+                    lasNum = lasNum.concat(e.key);
+                    inputScreen.innerText = lasNum
+                    dotCheck = true;
+                }
+            }
+        }
+    }
+    else if (e.key === 'Backspace'){
+        backSpace();
+    }
+    else if (e.key === 'Enter'){
+        equalEnd();
+    }
+    else if (e.key === 'Escape'){
+        clear();
+    }
+    else if (e.key == '+' || e.key == '-'|| e.key == "x" || e.key == '/' || e.key == '*'){
+        dotCheck = false;
+        if(inputScreen.innerHTML == "ERROR"){
+            clear();
+        }
+        if (doubleOp == false){
+            Op = e.key;
+            if(Op == '/'){
+                Op = '÷';
+            }
+            else if (Op == '*'){
+                Op = 'x'
+            }
+            else if (Op == '-'){
+                Op = '−'
+            }
+            display.innerHTML = `${firstNum} ${Op}`;
+            inputScreen.innerHTML = '';
+            doubleOp = true;
+        }
+        else{
+            tempOp = e.key;
+            if(tempOp  == '/'){
+                tempOp  = '÷';
+            }
+            else if (tempOp  == '*'){
+                tempOp  = 'x'
+            }
+            else if (tempOp  == '-'){
+                tempOp  = '−'
+            }
+            operation();
+            Op = tempOp;  
+        }
+    }
+}
