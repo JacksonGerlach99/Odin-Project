@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Table template</title>
+    <link href="minimal-table.css" rel="stylesheet" type="text/css">
+  </head>
+  <body>
+    <h1>Planets data</h1>
+    <table>
+    <tr>
+        <th> Name</th>
+        <th> Mass</th>
+        <th> Diameter</th>
+        <th> Density</th>
+        <th> Gravity</th>
+        <th> Length of day</th>
+        <th> Distance From Sun</th>
+        <th> Mean temperature</th>
+        <th> Number of moons</th>
+        <th> Notes</th>
+    </tr>
+    <tr>
+        <td id="nested">
+            <table>
+                <tr> <td>Terriestial Planets</td></tr>
+                <tr>
+                    <td rowspan="4"> Jovian Planets</td>
+                    <td rowspan="2"> gas giants</td>
+                    <td rowspan="2"> Ice Giants</td>
+                </tr>
+                <tr>
+                    <td> Dwarf Planets</td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+
+    </table>
+
+  </body>
+</html>
