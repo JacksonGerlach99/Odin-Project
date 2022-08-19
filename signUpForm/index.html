@@ -4,40 +4,57 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
     <title>Table template</title>
-    <link href="minimal-table.css" rel="stylesheet" type="text/css">
+    <link href="style.css" rel="stylesheet" type="text/css">
   </head>
   <body>
-    <h1>Planets data</h1>
-    <table>
-    <tr>
-        <th> Name</th>
-        <th> Mass</th>
-        <th> Diameter</th>
-        <th> Density</th>
-        <th> Gravity</th>
-        <th> Length of day</th>
-        <th> Distance From Sun</th>
-        <th> Mean temperature</th>
-        <th> Number of moons</th>
-        <th> Notes</th>
-    </tr>
-    <tr>
-        <td id="nested">
-            <table>
-                <tr> <td>Terriestial Planets</td></tr>
-                <tr>
-                    <td rowspan="4"> Jovian Planets</td>
-                    <td rowspan="2"> gas giants</td>
-                    <td rowspan="2"> Ice Giants</td>
-                </tr>
-                <tr>
-                    <td> Dwarf Planets</td>
-                </tr>
-            </table>
-        </td>
-    </tr>
-
-    </table>
+    <section>
+      <h2>Contact information</h2>
+      <fieldset>
+        <legend>Title</legend>
+        <ul>
+            <li>
+              <label for="title_1">
+                <input type="radio" id="title_1" name="title" value="K">
+                King
+              </label>
+            </li>
+            <li>
+              <label for="title_2">
+                <input type="radio" id="title_2" name="title" value="Q">
+                Queen
+              </label>
+            </li>
+            <li>
+              <label for="title_3">
+                <input type="radio" id="title_3" name="title" value="J">
+                Joker
+              </label>
+            </li>
+        </ul>
+      </fieldset>
+      <p>
+        <label for="name">
+          <span>Name: </span>
+          <strong><span aria-label="required">*</span></strong>
+        </label>
+        <input type="text" id="name" name="username">
+      </p>
+      <p>
+        <label for="mail">
+          <span>E-mail: </span>
+          <strong><span aria-label="required">*</span></strong>
+        </label>
+        <input type="email" id="mail" name="usermail">
+      </p>
+      <p>
+        <label for="pwd">
+          <span>Password: </span>
+          <strong><span aria-label="required">*</span></strong>
+        </label>
+        <input type="password" id="pwd" name="password">
+      </p>
+  </section>
+  
 
   </body>
 </html>
